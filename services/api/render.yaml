@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: fynd-reviews-api
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fynd-reviews-db
+          property: connectionString
+      - key: CORS_ORIGINS
+        value: "*"
+
+databases:
+  - name: fynd-reviews-db
+    databaseName: fynd_reviews
+    user: fynd_reviews_user
+    plan: free
+    region: oregon

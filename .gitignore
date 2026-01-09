@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Task 1 Notebook data and outputs
+notebooks/data/yelp.csv
+notebooks/outputs/
+
+# Logs
+*.log
+nohup.out
+
+# OS
+.DS_Store
+Thumbs.db
