@@ -48,8 +48,36 @@ This project implements a complete review management system where:
 - Node.js 18+
 - Python 3.10+
 - PostgreSQL (or connection to cloud Postgres)
+- **Docker & Docker Compose** (recommended for easy deployment)
 
-### Backend (FastAPI)
+### 🐳 Docker Deployment (Recommended)
+
+The easiest way to run the backend with PostgreSQL:
+
+```bash
+cd services/api
+
+# Quick start with script
+./docker-start.sh
+
+# Or manually with docker-compose
+docker-compose up -d --build
+```
+
+The API will be available at `http://localhost:8000` with PostgreSQL automatically configured.
+
+**Docker Features:**
+- ✅ Automatic PostgreSQL setup with health checks
+- ✅ Development & production Dockerfiles
+- ✅ Volume persistence for database
+- ✅ Hot reload support
+- ✅ One-command deployment
+
+See [services/api/DOCKER.md](services/api/DOCKER.md) for complete Docker documentation.
+
+### Backend (FastAPI) - Manual Setup
+
+If you prefer not to use Docker:
 
 ```bash
 cd services/api
@@ -68,6 +96,8 @@ cp .env.example .env
 # Run development server
 uvicorn main:app --reload --port 8000
 ```
+
+**Note:** Manual setup requires PostgreSQL to be installed and running separately.
 
 ### User Dashboard (Next.js)
 
@@ -215,7 +245,37 @@ Located at: `notebooks/task1_rating_prediction.ipynb`
 ## 📖 Documentation
 
 - [Technical Report](docs/report.md) - Full architecture, prompts, evaluation results
+- [Docker Deployment Guide](services/api/DOCKER.md) - Complete Docker setup & deployment
 - [Project Status](PROJECT_STATUS.md) - Phase execution contract
+
+## 🚢 Deployment Options
+
+### Docker Deployment
+
+The backend includes production-ready Docker configuration:
+
+```bash
+# Development with Docker Compose
+cd services/api
+docker-compose up -d --build
+
+# Production build
+docker build -f Dockerfile.prod -t fynd-api:latest .
+```
+
+**Supported Platforms:**
+- Render.com (auto-detects Dockerfile)
+- AWS ECS/Fargate
+- Google Cloud Run
+- DigitalOcean App Platform
+- Any Docker-compatible platform
+
+See [DOCKER.md](services/api/DOCKER.md) for platform-specific deployment instructions.
+
+### Traditional Deployment
+
+- **Frontend**: Deploy to Vercel/Netlify (automatic detection)
+- **Backend**: Deploy to Render/Railway/Heroku with `requirements.txt`
 
 ## Author
 
