@@ -30,16 +30,13 @@ This project implements a complete review management system where:
 /docs
   report.md          # Technical report
 ```
-
 ## 🚀 Deployed URLs
 
 | Service             | URL                             |
 | ------------------- | ------------------------------- |
-| **User Dashboard**  | `https://fynd-user.vercel.app`  |
-| **Admin Dashboard** | `https://fynd-admin.vercel.app` |
-| **Backend API**     | `https://fynd-api.onrender.com` |
-
-> ⚠️ **Note:** If URLs show placeholders, deployment is pending. See [Local Development](#local-development-setup) to run locally.
+| **User Dashboard**  | `https://findreview.vercel.app`  |
+| **Admin Dashboard** | `https://fynd-review-analysis.vercel.app` |
+| **Backend API**     | `https://fynd-review-analysis.onrender.com` |
 
 ## Local Development Setup
 
@@ -166,11 +163,11 @@ The admin dashboard will be available at `http://localhost:3001`
 
 **Comprehensive evaluation of 3 prompting approaches on 500 Yelp reviews:**
 
-| Approach               | Accuracy  | JSON Validity | Consistency | Avg Latency |
-| ---------------------- | --------- | ------------- | ----------- | ----------- |
-| Zero-Shot Rubric       | 61.2%     | 100.0%        | 94.0%       | 850ms       |
-| **Few-Shot Examples**  | **63.8%** | 100.0%        | **96.0%**   | 887ms       |
-| Structured Constraints | 63.2%     | 100.0%        | **96.0%**   | 893ms       |
+| Approach               | Accuracy  | Consistency| Avg Latency |
+| ---------------------- | --------- | ---------- | ----------- | 
+| Zero-Shot Rubric       | 61.2%     | 94.0%      | 850ms       |
+| **Few-Shot Examples**  | **63.8%** |**96.0%**   | 887ms       |
+| Structured Constraints | 63.2%     |**96.0%**   | 893ms       |
 
 **Key Findings:**
 
@@ -233,20 +230,10 @@ Located at: `notebooks/task1_rating_prediction.ipynb`
 - `task1_predictions_*.csv` - All 1,500 predictions with ground truth
 - `task1_consistency_*.csv` - Consistency test results
 
-## Progress
-
-- [x] Phase 1: Repo Skeleton + Deployability Baseline
-- [x] Phase 2: Persistence + Submission Pipeline
-- [x] Phase 3: LLM Integration + Guardrails
-- [x] Phase 4: Task 1 Notebook
-- [x] Phase 5: Differentiator Feature (Admin Analytics)
-- [x] Phase 6: Report + Final Polish
 
 ## 📖 Documentation
 
 - [Technical Report](docs/report.md) - Full architecture, prompts, evaluation results
-- [Docker Deployment Guide](services/api/DOCKER.md) - Complete Docker setup & deployment
-- [Project Status](PROJECT_STATUS.md) - Phase execution contract
 
 ## 🚢 Deployment Options
 
@@ -274,8 +261,8 @@ See [DOCKER.md](services/api/DOCKER.md) for platform-specific deployment instruc
 
 ### Traditional Deployment
 
-- **Frontend**: Deploy to Vercel/Netlify (automatic detection)
-- **Backend**: Deploy to Render/Railway/Heroku with `requirements.txt`
+- **Frontend**: Deploy to Vercel (automatic detection)
+- **Backend**: Deploy to Render with `requirements.txt`
 
 ## Author
 
